@@ -1,8 +1,12 @@
 <?php
+namespace App\Models;
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote');
+class User extends Authenticatable
+{
+public function tasks()
+{
+return $this->hasMany(Task::class);
+}
+}
